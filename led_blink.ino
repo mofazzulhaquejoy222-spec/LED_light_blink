@@ -1,47 +1,24 @@
-
-int waterSensor = A0;
-
-int greenLED = 2;
-int yellowLED = 3;
-int redLED = 4;
-
-int waterValue = 0;
-
-void setup() {
-  Serial.begin(9600);
-
-  pinMode(greenLED, OUTPUT);
-  pinMode(yellowLED, OUTPUT);
-  pinMode(redLED, OUTPUT);
+void setup(){
+  pinMode(13,OUTPUT);
+  pinMode(12,OUTPUT);
+  pinMode(11,OUTPUT);
+  pinMode(10,OUTPUT);
+  pinMode(9,OUTPUT);
 }
-
-void loop() {
-
-  waterValue = analogRead(waterSensor);
-
-  Serial.print("Water Level: ");
-  Serial.println(waterValue);
-
-  if (waterValue < 300) {
-    // Low water level
-    digitalWrite(greenLED, HIGH);
-    digitalWrite(yellowLED, LOW);
-    digitalWrite(redLED, LOW);
-  }
-
-  else if (waterValue < 600) {
-    // Medium water level
-    digitalWrite(greenLED, LOW);
-    digitalWrite(yellowLED, HIGH);
-    digitalWrite(redLED, LOW);
-  }
-
-  else {
-    // High water level
-    digitalWrite(greenLED, LOW);
-    digitalWrite(yellowLED, LOW);
-    digitalWrite(redLED, HIGH);
-  }
-
-  delay(500);
+void loop(){
+  digitalWrite(13,HIGH);
+  delay(200);
+  digitalWrite(13,LOW);
+  digitalWrite(12,HIGH);
+  delay(200);
+  digitalWrite(12,LOW);
+  digitalWrite(11,HIGH);
+  delay(200);
+  digitalWrite(11,LOW);
+  digitalWrite(10,HIGH);
+  delay(200);
+  digitalWrite(10,LOW);
+  digitalWrite(9,HIGH);
+  delay(200);
+  digitalWrite(9,LOW);
 }
